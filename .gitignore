@@ -41,3 +41,4 @@ out/
 *.jar
 *.war
 *.ear
+application.properties
