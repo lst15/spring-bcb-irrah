@@ -35,10 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-
-# Package Files #
-*.jar
-*.war
-*.ear
-application.properties
