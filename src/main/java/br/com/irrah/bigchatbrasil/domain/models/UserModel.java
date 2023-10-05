@@ -34,9 +34,12 @@ public class UserModel {
   private String phone;
 
   @Column(name = "user_company_cnpj")
-  private String company_cnpj;
+  private String companyCnpj;
 
   @Column(name = "user_company_name")
-  private String company_name;
+  private String companyName;
+
+  public UserModel() {
+  }
 
 }

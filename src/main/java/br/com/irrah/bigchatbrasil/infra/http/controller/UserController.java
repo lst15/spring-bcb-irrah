@@ -20,10 +20,17 @@ public class UserController {
     this.createUser = createUser;
   }
 
+  // TODO adicionar assinatura
   @PostMapping
-  public ResponseEntity<UserModel> create(@RequestBody UserModel user) {
-    createUser.exec(user);
-    return new ResponseEntity<UserModel>(user, HttpStatus.CREATED);
+  public ResponseEntity create(@RequestBody UserModel user) {
+
+    try {
+      createUser.exec(user);
+      return new ResponseEntity<UserModel>(user, HttpStatus.CREATED);
+    } catch (Exception e) {
+      return new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+    }
+
   }
 
 }
