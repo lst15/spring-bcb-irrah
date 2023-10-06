@@ -2,7 +2,6 @@ package br.com.irrah.bigchatbrasil.infra.http.controller;
 
 import java.util.Optional;
 
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties.RSocket.Client;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
