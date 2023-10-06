@@ -10,3 +10,5 @@ ALTER TABLE Message_has_Platform RENAME COLUMN "Message_message_id" TO "message_
 ALTER TABLE platform RENAME COLUMN "platform_createdAt" TO "platform_createdat";
 
 ALTER TABLE public.user RENAME COLUMN "user_createdAt" TO "user_createdat";
+
+ALTER TABLE public."Message" RENAME TO message;

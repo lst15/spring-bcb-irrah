@@ -11,16 +11,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Message")
+@Table(name = "Message", schema = "public")
 @Getter
 @Setter
 @AllArgsConstructor
 public class MessageModel {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer messageId;
 
-  @Column
+  @Column(name = "message_text")
+  private String messageText;
+
+  @Column(name = "message_to")
+  private String messageTo;
+
+  @Column(name = "user_uuid")
+  private String userUuid;
+
+  public MessageModel() {
+  }
 
 }
