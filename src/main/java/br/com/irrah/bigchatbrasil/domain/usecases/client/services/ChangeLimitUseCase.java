@@ -23,6 +23,10 @@ public class ChangeLimitUseCase implements ChangeLimitClient {
   public ClientModel exec(String userUuid, Float limit) {
     ClientModel client = validateClientExists(userUuid);
 
+    if (limit < 0) {
+      throw new RuntimeException("value not be less than 0");
+    }
+
     client.setAllowConsume(limit);
     clientRepository.save(client);
 
