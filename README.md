@@ -14,6 +14,12 @@ Precisamos que seja possível via web ou mobile que os clientes enviem mensagens
  * Alterar plano de um cliente
  * Ver dados de um cliente
 
+## Requisitos
+   Java >= 17
+   PostgreSQL(opcional se não usar Docker)
+   Docker(opcional)
+   
+
 # Instalação e Execução
 
 Clone o projeto e acesse o diretorio
