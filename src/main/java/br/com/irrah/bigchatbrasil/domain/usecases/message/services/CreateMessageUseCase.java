@@ -20,9 +20,10 @@ public class CreateMessageUseCase implements CreateMessage {
   @Autowired
   public CreateMessageUseCase(
       MessageRepository messageRepository,
-      UserRepository userRepository) {
-    this.messageRepository = messageRepository;
-    this.userRepository = userRepository;
+      UserRepository userRepository
+    ) {
+      this.messageRepository = messageRepository;
+      this.userRepository = userRepository;
   }
 
   @Override
