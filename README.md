@@ -15,9 +15,9 @@ Precisamos que seja possível via web ou mobile que os clientes enviem mensagens
  * Ver dados de um cliente
 
 ## Requisitos
-   Java >= 17
-   PostgreSQL(opcional se não usar Docker)
-   Docker(opcional)
+   - Java >= 17
+   - PostgreSQL(opcional se não usar Docker)
+   - Docker(opcional)
    
 
 # Instalação e Execução
