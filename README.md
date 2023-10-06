@@ -29,10 +29,17 @@ Clone o projeto e acesse o diretorio
    cd spring-bcb-irrah
    ```
 
-## Instruções para Instalação e Execução local (testado em windows)
+## Instruções para Instalação e Execução local
+
+   (Somente linux users) vá para a pasta raiz do projeto e dê permissão para o uso do gradlew :
+
+   ```
+   ./chdmod +x ./gradlew
+   ```
 
 1. Atualize as informações de acesso do POSTGRES local no diretorio *src/main/resources/application.properties*
-   
+  Obs.: Tenha certeza de que a database informada de fato exista.
+
   ```
   spring.datasource.url=jdbc:postgresql://localhost:5432/<DATABASE>?schema=public
   spring.datasource.username=postgres
@@ -40,17 +47,30 @@ Clone o projeto e acesse o diretorio
   ```
 
 2. Abra o terminal na pasta raiz do projeto e execute as migrations com o comando:
-   
+   (Windows)
+
    ```
    gradlew flywayMigrate
    ```
 
-3. Ainda na pasta raiz, inicialize a aplicação:
+   (Linux)
+   
+   ```
+   ./gradlew flywayMigrate
+   ```
+
+2. Ainda na pasta raiz, inicialize a aplicação:
+   (Windows)
    
    ```
    gradlew runBcb
    ```
 
+   (Linux)
+   
+   ```
+   ./gradlew runBcb
+   ```
 
 ## Instruções para Instalação e Execução com Docker
 
