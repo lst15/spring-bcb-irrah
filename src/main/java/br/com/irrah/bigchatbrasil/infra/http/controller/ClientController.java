@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.irrah.bigchatbrasil.domain.models.ClientModel;
 import br.com.irrah.bigchatbrasil.domain.usecases.client.AddCreditsClient;
 import br.com.irrah.bigchatbrasil.domain.usecases.client.ChangeLimitClient;
+import br.com.irrah.bigchatbrasil.domain.usecases.client.ChangePlanClient;
 import br.com.irrah.bigchatbrasil.domain.usecases.client.CreateClient;
 import br.com.irrah.bigchatbrasil.domain.usecases.client.GetClient;
 
@@ -27,16 +28,19 @@ public class ClientController {
   public final AddCreditsClient addCreditsClient;
   public final GetClient getClient;
   public final ChangeLimitClient changeLimitClient;
+  public final ChangePlanClient changePlanClient;
 
   public ClientController(
       CreateClient createClient,
       AddCreditsClient addCreditsClient,
       GetClient getClient,
-      ChangeLimitClient changeLimitClient) {
+      ChangeLimitClient changeLimitClient,
+      ChangePlanClient changePlanClient) {
     this.createClient = createClient;
     this.addCreditsClient = addCreditsClient;
     this.getClient = getClient;
     this.changeLimitClient = changeLimitClient;
+    this.changePlanClient = changePlanClient;
   }
 
   @GetMapping("/{userUuid}")
@@ -53,6 +57,16 @@ public class ClientController {
   public ResponseEntity changeLimit(@PathVariable String userUuid, @RequestBody Float limit) {
     try {
       ClientModel client = changeLimitClient.exec(userUuid, limit);
+      return new ResponseEntity<ClientModel>(client, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+    }
+  }
+
+  @PutMapping("/plan/{userUuid}")
+  public ResponseEntity changePlan(@PathVariable String userUuid, @RequestBody Integer planId) {
+    try {
+      ClientModel client = changePlanClient.exec(userUuid, planId);
       return new ResponseEntity<ClientModel>(client, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
